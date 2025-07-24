@@ -29,6 +29,13 @@ const toggleSwitchConfigs = [
     hoverCardText: undefined,
     key: 'hideSidePanel',
   },
+  {
+    stateAtom: store.useMock,
+    localizationKey: 'com_nav_mock_mode',
+    switchId: 'useMock',
+    hoverCardText: undefined,
+    key: 'useMock',
+  },
 ];
 
 export const ThemeSelector = ({
