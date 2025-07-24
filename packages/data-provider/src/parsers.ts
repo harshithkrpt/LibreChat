@@ -62,6 +62,7 @@ export function getEnabledEndpoints() {
     EModelEndpoint.gptPlugins,
     EModelEndpoint.anthropic,
     EModelEndpoint.bedrock,
+    EModelEndpoint.mock,
   ];
 
   const endpointsEnv = process.env.ENDPOINTS ?? '';

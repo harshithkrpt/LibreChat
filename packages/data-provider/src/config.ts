@@ -970,6 +970,7 @@ export const defaultModels = {
     'gpt-3.5-turbo-instruct',
   ],
   [EModelEndpoint.bedrock]: bedrockModels,
+  [EModelEndpoint.mock]: ['mock-model'],
 };
 
 const fitlerAssistantModels = (str: string) => {
@@ -995,6 +996,7 @@ export const EndpointURLs = {
   [EModelEndpoint.assistants]: '/api/assistants/v2/chat',
   [EModelEndpoint.azureAssistants]: '/api/assistants/v1/chat',
   [EModelEndpoint.agents]: `/api/${EModelEndpoint.agents}/chat`,
+  [EModelEndpoint.mock]: '/api/mock/chat',
 } as const;
 
 export const modularEndpoints = new Set<EModelEndpoint | string>([
@@ -1006,6 +1008,7 @@ export const modularEndpoints = new Set<EModelEndpoint | string>([
   EModelEndpoint.custom,
   EModelEndpoint.agents,
   EModelEndpoint.bedrock,
+  EModelEndpoint.mock,
 ]);
 
 export const supportsBalanceCheck = {
@@ -1018,6 +1021,7 @@ export const supportsBalanceCheck = {
   [EModelEndpoint.azureAssistants]: true,
   [EModelEndpoint.azureOpenAI]: true,
   [EModelEndpoint.bedrock]: true,
+  [EModelEndpoint.mock]: false,
 };
 
 export const visionModels = [

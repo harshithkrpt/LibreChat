@@ -47,6 +47,7 @@ module.exports = {
     [EModelEndpoint.bedrock]: generateConfig(
       process.env.BEDROCK_AWS_SECRET_ACCESS_KEY ?? process.env.BEDROCK_AWS_DEFAULT_REGION,
     ),
+    [EModelEndpoint.mock]: generateConfig('mock-key'),
     /* key will be part of separate config */
     [EModelEndpoint.agents]: generateConfig('true', undefined, EModelEndpoint.agents),
   },

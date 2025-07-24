@@ -26,6 +26,7 @@ const edit = require('./edit');
 const keys = require('./keys');
 const user = require('./user');
 const mcp = require('./mcp');
+const mock = require('./mock');
 
 module.exports = {
   edit,
@@ -54,6 +55,7 @@ module.exports = {
   tokenizer,
   assistants,
   categories,
+  mock,
   staticRoute,
   mcp,
 };
