@@ -21,6 +21,15 @@ const localStorageAtoms = {
   // General settings
   autoScroll: atomWithLocalStorage('autoScroll', false),
   hideSidePanel: atomWithLocalStorage('hideSidePanel', false),
+  useMock: atomWithLocalStorage('useMock', (() => {
+    if (typeof window !== 'undefined') {
+      const param = new URLSearchParams(window.location.search).get('mock');
+      if (param === '1' || param === 'true') {
+        return true;
+      }
+    }
+    return import.meta.env.VITE_USE_MOCK === 'true';
+  })()),
   fontSize: atomWithLocalStorage('fontSize', 'text-base'),
   enableUserMsgMarkdown: atomWithLocalStorage<boolean>(
     LocalStorageKeys.ENABLE_USER_MSG_MARKDOWN,

@@ -28,6 +28,10 @@ export default function createPayload(submission: t.TSubmission) {
       (isEdited ? '/modify' : '');
   }
 
+  if (typeof window !== 'undefined' && window.__USE_MOCK__) {
+    server = server.replace('/api', '/api/mock');
+  }
+
   const payload: t.TPayload = {
     ...userMessage,
     ...endpointOption,

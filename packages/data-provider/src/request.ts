@@ -2,6 +2,13 @@
 import axios, { AxiosError, AxiosRequestConfig } from 'axios';
 import * as endpoints from './api-endpoints';
 import { setTokenHeader } from './headers-helpers';
+
+axios.interceptors.request.use((config) => {
+  if (typeof window !== 'undefined' && window.__USE_MOCK__ && config.url?.startsWith('/api') && !config.url.startsWith('/api/mock')) {
+    config.url = config.url.replace('/api', '/api/mock');
+  }
+  return config;
+});
 import type * as t from './types';
 
 async function _get<T>(url: string, options?: AxiosRequestConfig): Promise<T> {

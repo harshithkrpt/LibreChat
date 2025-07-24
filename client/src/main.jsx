@@ -10,9 +10,10 @@ import 'katex/dist/contrib/copy-tex.js';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
+const useMockFlag = import.meta.env.VITE_USE_MOCK === 'true';
 
 root.render(
   <ApiErrorBoundaryProvider>
-    <App />
+    <App useMock={useMockFlag} />
   </ApiErrorBoundaryProvider>,
 );
